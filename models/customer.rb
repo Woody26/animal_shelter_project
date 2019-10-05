@@ -11,9 +11,13 @@ class CustomerRecord
 
 
   #def save()
+  #end
 
+  #def update()
+  #end
 
   #def self.all()
-
+  #end
 
   #def self.find(id)
+  #end
