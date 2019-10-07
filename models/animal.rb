@@ -14,6 +14,7 @@ class AnimalRecord
     @species = options['species']
     @adoptable = options['adoptable']
     @admission_date = options['admission_date']
+    @customer_id = options REFERENCES customer['id']
   end
 
   def save()

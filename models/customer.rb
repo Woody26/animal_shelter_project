@@ -10,7 +10,6 @@ class CustomerRecord
     @id = options['id'].to_i() if options['id']
     @first_name = options['first_name']
     @last_name = options['last_name']
-    @pet_id = options REFERENCES animal['id']
   end
 
   def save()
@@ -18,9 +17,8 @@ class CustomerRecord
     (
       first_name,
       last_name,
-      pet_id
       ) VALUES (
-        $1, $2, $3
+        $1, $2
         ) RETURNING id"
         values = [@first_name, @last_name]
         #DO I REQUIRE @PET_ID IN ABOVE LINE OF CODE
