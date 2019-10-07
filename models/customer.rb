@@ -4,20 +4,45 @@ require_relative( 'animal' )
 
 class CustomerRecord
 
-  #attr_reader here
+  attr_reader :id, :first_name, :last_name
 
+  def initialize (options)
+    @id = options['id'].to_i() if options['id']
+    @first_name = options['first_name']
+    @last_name = options['last_name']
+    @pet_id = options REFERENCES animal['id']
+  end
 
-  #def initialize (options) here
-
-
-  #def save()
-  #end
+  def save()
+    sql = "INSERT INTO CustomerRecord
+    (
+      first_name,
+      last_name,
+      pet_id
+      ) VALUES (
+        $1, $2, $3
+        ) RETURNING id"
+        values = [@first_name, @last_name]
+        #DO I REQUIRE @PET_ID IN ABOVE LINE OF CODE
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+  end
 
   #def update()
   #end
 
-  #def self.all()
-  #end
+  def self.all()
+    sql = "SELECT * FROM customers"
+    customers = SqlRunner.run(sql)
+    return customers.map { | customer | CustomerRecord.new(customer) }
+  end
 
-  #def self.find(id)
-  #end
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [id]
+    results = SqlRunner.rub(sql, values)
+    customer_hash = results.first()
+    customer = Customers.new(customer_hash)
+    return customer
+  end
+
+end
