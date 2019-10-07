@@ -1,0 +1,24 @@
+<h1>Animal Records</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Age</th>
+    <th></th>
+    <th>Species</th>
+    <th></th>
+    <th>Adoptable</th>
+    <th></th>
+    <th>Admissions Date</th>
+    <th></th>
+    <th>Owner ID</th>
+  </tr>
+  <% for animal in @animals %>
+  <tr>
+    <td><%= animal.name %>
+    <td>|</td>
+  </tr>
+  <% end %>
+</table>

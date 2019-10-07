@@ -8,7 +8,7 @@ also_reload( '../models/*' )
 
 get '/animals' do
   @animals = animal.all
-  erb(:index)
+  erb(":animal/index")
 end
 
 get '/animals/new' do
@@ -18,7 +18,7 @@ end
 
 post '/animals' do
   Animal.new(params).save
-  redirect to '/animals'
+  redirect to '/animal'
 end
 
 get '/canimals/:id' do

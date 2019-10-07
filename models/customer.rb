@@ -13,7 +13,7 @@ class CustomerRecord
   end
 
   def save()
-    sql = "INSERT INTO owner_records
+    sql = "INSERT INTO owner
     (
       first_name,
       last_name
@@ -29,13 +29,13 @@ class CustomerRecord
   #end
 
   def self.all()
-    sql = "SELECT * FROM owner_records"
+    sql = "SELECT * FROM owner"
     customers = SqlRunner.run(sql)
     return customers.map { | customer | CustomerRecord.new(customer) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM owner_records WHERE id = $1"
+    sql = "SELECT * FROM owner WHERE id = $1"
     values = [id]
     results = SqlRunner.rub(sql, values)
     customer_hash = results.first()
