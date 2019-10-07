@@ -1,4 +1,4 @@
-<h1>Animal Records</h1>
+<h2>Animal Records</h2>
 
 
 <table>
@@ -17,17 +17,17 @@
   </tr>
   <% for animal in @animals %>
   <tr>
-    <td><%= animal.name %>
+    <td><%= animal.name %></td>
     <td>|</td>
-    <td><%= animal.age %>
+    <td><%= animal.age %></td>
     <td>|</td>
-    <td><%= animal.species %>
-    <td>|</td
-    <td><%= animal.adoptable %>
+    <td><%= animal.species %></td>
     <td>|</td>
-    <td><%= animal.admission_date %>
+    <td><%= animal.adoptable %></td>
     <td>|</td>
-    <td><%= animal.owner_id %>
+    <td><%= animal.admission_date %></td>
+    <td>|</td>
+    <td><%= animal.owner_id %></td>
     <td>|</td>
   </tr>
   <% end %>
