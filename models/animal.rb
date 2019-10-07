@@ -33,8 +33,23 @@ class Animal
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
   end
 
-  #def update()
-  #end
+  def update()
+    sql = "UPDATE animals
+    SET
+    (
+      name,
+      age,
+      species,
+      adoptable,
+      admission_date,
+      owner_id
+      ) =
+      (
+        $1, $2, $3, $4, $5, $6
+      ) WHERE id = $6"
+        values = [@name, @age, @species, @adoptable, @admission_date, @owner_id]
+        @id = SqlRunner.run(sql, values)
+  end
 
   def self.delete_all()
     sql = "DELETE FROM animals"
