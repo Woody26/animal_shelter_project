@@ -1,15 +1,15 @@
 require_relative('../models/animal')
-require_relative('../models/customer')
+require_relative('../models/owner')
 require('pry')
 
-# Animal.delete_all()
-# Customer.delete_all()
+# Animal.delete_all
+# Owner.delete_all
 
   animal1 = Animal.new({
     "name" =>  "Harry",
     "age" => 4,
     "species" => "Dog",
-    "adoptable" => "Yes",
+    "adoptable" => "True",
     "admission_date" => "01/01/2019"
     })
 
@@ -17,16 +17,16 @@ require('pry')
     "name" =>  "Sally",
     "age" => 2,
     "species" => "Cat",
-    "adoptable" => "No",
+    "adoptable" => "False",
     "admission_date" => "01/10/2019"
     })
 
-  customer1 = CustomerRecord.new({
+  owner1 = Owner.new({
     "first_name" => "Tony",
     "last_name" => "Cobb"
     })
 
-  customer2 = CustomerRecord.new({
+  owner2 = Owner.new({
     "first_name" => "Sarah",
     "last_name" => "Dey"
     })
@@ -34,5 +34,5 @@ require('pry')
 animal1.save
 animal2.save
 
-customer1.save
-customer2.save
+owner1.save
+owner2.save

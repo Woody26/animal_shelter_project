@@ -2,7 +2,7 @@ require('pg')
 require_relative( '../db/sql_runner' )
 require_relative( 'animal' )
 
-class CustomerRecord
+class Owner
 
   attr_reader :id, :first_name, :last_name
 
@@ -30,17 +30,17 @@ class CustomerRecord
 
   def self.all()
     sql = "SELECT * FROM owner"
-    customers = SqlRunner.run(sql)
-    return customers.map { | customer | CustomerRecord.new(customer) }
+    owners = SqlRunner.run(sql)
+    return owners.map { | owner | Owner.new(owner) }
   end
 
   def self.find(id)
     sql = "SELECT * FROM owner WHERE id = $1"
     values = [id]
     results = SqlRunner.rub(sql, values)
-    customer_hash = results.first()
-    customer = Customers.new(customer_hash)
-    return customer
+    owner_hash = results.first()
+    owner = owners.new(owner_hash)
+    return owner
   end
 
 end

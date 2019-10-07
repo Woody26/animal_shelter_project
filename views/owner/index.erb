@@ -1,0 +1,18 @@
+<h1>Owner Records</h1>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th></th>
+    <th>Last Name</th>
+    <th></th>
+  </tr>
+  <% for owner in @owners %>
+  <tr>
+    <td><%= owner.first_name %>
+    <td>|</td>
+    <td><%= owner.last_name %>
+    <td>|</td>
+  </tr>
+  <% end %>
+</table>

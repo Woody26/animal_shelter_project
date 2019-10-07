@@ -2,44 +2,44 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( '../models/animal.rb' )
-require_relative( '../models/customer.rb' )
+require_relative( '../models/owner.rb' )
 also_reload( '../models/*' )
 
 
-get '/animals' do
-  @animals = animal.all
-  erb(":animal/index")
+get '/animal' do
+  @animals = Animal.all
+  erb(:"/animal/index")
 end
 
-get '/animals/new' do
-  @animals = animals.all
-  erb(:new)
+get '/animal/new' do
+  @animals = Animal.all
+  erb(:"/animal/new")
 end
 
-post '/animals' do
-  Animal.new(params).save
-  redirect to '/animal'
-end
-
-get '/canimals/:id' do
-  @animals = Animal.find(params['id'])
-  erb(:show)
-end
-
-get '/animals/:id/edit' do
-  @customers = Customer.all
-  @animal = Animal.find(params['id'])
-  erb(:edit)
-end
-
-post '/animals/:id' do
-  animal = Animal.new(params)
-  animal.update
-  redirect to "/animals/#{params['id']}"
-end
-
-post '/animals/:id/delete' do
-  animal = Animal.find(params['id'])
-  animal.delete
-  redirect to '/animals'
-end
+# post '/animal' do
+#   Animal.new(params).save
+#   redirect to '/animal'
+# end
+#
+# get '/animal/:id' do
+#   @animals = Animal.find(params['id'])
+#   erb(:show)
+# end
+#
+# get '/animal/:id/edit' do
+#   @owners = Owner.all
+#   @animals = Animal.find(params['id'])
+#   erb(:edit)
+# end
+#
+# post '/animal/:id' do
+#   animal = Animal.new(params)
+#   Animal.update
+#   redirect to "/animal/#{params['id']}"
+# end
+#
+# post '/animal/:id/delete' do
+#   animal = Animal.find(params['id'])
+#   animal.delete
+#   redirect to '/animal'
+# end

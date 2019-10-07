@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS animal_records;
+DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS owner;
 
 CREATE TABLE owner(
@@ -7,7 +7,7 @@ CREATE TABLE owner(
   last_name VARCHAR(255)
 );
 
-CREATE TABLE animal_records (
+CREATE TABLE animals (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   age INT8,

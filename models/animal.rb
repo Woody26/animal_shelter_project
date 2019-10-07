@@ -1,6 +1,6 @@
 require('pg')
 require_relative( '../db/sql_runner' )
-require_relative('customer')
+require_relative('owner')
 
 class Animal
 
@@ -10,15 +10,15 @@ class Animal
   def initialize( options )
     @id = options['id'].to_i() if options['id']
     @name = options['name']
-    @age = options['age']
+    @age = options['age'].to_i()
     @species = options['species']
     @adoptable = options['adoptable']
     @admission_date = options['admission_date']
-    @owner_id = options['owner_id']
+    @owner_id = options['owner_id'].to_i() if options['id']
   end
 
   def save()
-    sql = "INSERT INTO animal_records
+    sql = "INSERT INTO animals
     (
       name,
       age,
@@ -34,18 +34,18 @@ class Animal
   end
 
   def self.delete_all()
-    sql = "DELETE FROM animal_records"
+    sql = "DELETE FROM animals"
     SqlRunner.run(sql)
   end
 
   def self.all()
-    sql = "SELECT * FROM animal_records"
+    sql = "SELECT * FROM animals"
     animals = SqlRunner.run(sql)
     return animals.map { | animal | Animal.new(animal) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM animal_records WHERE id = $1"
+    sql = "SELECT * FROM animals WHERE id = $1"
     values = [id]
     results = SqlRunner.rub(sql, values)
     animal_hash = results.first()
