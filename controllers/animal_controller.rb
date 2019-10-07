@@ -6,4 +6,7 @@ require_relative( '../models/customer.rb' )
 also_reload( '../models/*' )
 
 
-# get/post commands
+get '/animals' do
+  @animals = animal.all
+  erb(:index)
+end
