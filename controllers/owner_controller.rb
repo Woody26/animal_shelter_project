@@ -6,45 +6,45 @@ require_relative( '../models/owner.rb' )
 also_reload( '../models/*' )
 
 
-get '/owner' do
+get '/owners' do
   @owners = Owner.all
-  erb(:"/owner/index")
+  erb(:"/owners/index")
 end
 
-get '/owner/new' do
+get '/owners/new' do
   @owners = Owner.all
-  erb(:"/owner/new")
+  erb(:"/owners/new")
 end
 
 # Create
-post '/owner' do
+post '/owners' do
   Owner.new(params).save
-  redirect to '/owner'
+  redirect to '/owners'
 end
 
 # Show
-get '/owner/:id' do
-  @owner = Owner.find(params['id'])
+get '/owners/:id' do
+  @owners = Owner.find(params['id'])
   erb(:show)
 end
 
 # Edit
-get '/owner/:id/edit' do
-  @animals = Animals.all
-  @owner = Owner.find(params['id'])
-  erb(:edit)
+get '/owners/:id/edit' do
+  @animals = Animal.all
+  @owners = Owner.find(params['id'])
+  erb(:"owners/edit")
 end
 
 # Update
-post '/owner/:id' do
+post '/owners/:id' do
   owner = Owner.new(params)
   Owner.update
-  redirect to "/owner/#{params['id']}"
+  redirect to "/owners/#{params['id']}"
 end
 
 # Delete
-post '/owner/:id/delete' do
+post '/owners/:id/delete' do
   owner = Owner.find(params['id'])
   Owner.delete
-  redirect to '/owner'
+  redirect to '/owners'
 end

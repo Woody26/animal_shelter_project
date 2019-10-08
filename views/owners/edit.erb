@@ -1,0 +1,20 @@
+<h2>Edit <%= @owners.first_name %></h2>
+<form method="POST" action="/owners/<%= @owners.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" id="first_name" value="<%= @owners.first_name %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" id="last_name"  value="<%= @owners.last_name %>"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Submit Owner Details"/>
+    </div>
+
+  </div>
+</form>

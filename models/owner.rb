@@ -49,9 +49,9 @@ class Owner
   def self.find(id)
     sql = "SELECT * FROM owner WHERE id = $1"
     values = [id]
-    results = SqlRunner.rub(sql, values)
+    results = SqlRunner.run(sql, values)
     owner_hash = results.first()
-    owner = owners.new(owner_hash)
+    owner = Owner.new(owner_hash)
     return owner
   end
 

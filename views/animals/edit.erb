@@ -1,0 +1,35 @@
+<h2>Edit <%= @animals.name %></h2>
+<form method="POST" action="/animals/<%= @animals.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="name">Animal Name:</label>
+      <input type="text" name="name" id="name" value="<%= @animals.name %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="age">Age:</label>
+      <input type="text" name="age" id="age"  value="<%= @animals.age %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="species">Species:</label>
+      <input type="text" name="species" id="species"  value="<%= @animals.species %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="adoptable">Adoptable:</label>
+      <input type="text" name="adoptable" id="adoptable"  value="<%= @animals.adoptable %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="admission_date">Admission Date:</label>
+      <input type="text" name="admission_date" id="admission_date"  value="<%= @animals.admission_date %>"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Submit Animal Details"/>
+    </div>
+
+  </div>
+</form>
