@@ -1,0 +1,17 @@
+<h2>Assign <%= @animal.name %> For Adoption</h2>
+
+<!-- Here comes the form where we detail the animal and
+have a dropdown for all owners - once the form is
+submitted, we hit "/animals/:id/adopt" route in the
+controller -->
+
+<form action="/animals/<%= @animal.id %>/adopt" method="post">
+  Potential owners:
+  <select name="owner_id">
+    <% for owner in @owners %>
+    <option value="<%= owner.id %>"><%= owner.last_name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" name="" value="Adopt Animal">
+</form>

@@ -25,7 +25,7 @@ end
 # show
 get '/animals/:id' do
   @animals = Animal.find(params['id'])
-  erb(:show)
+  erb(:"index")
 end
 
 # edit
@@ -37,14 +37,28 @@ end
 
 # update
 post '/animals/:id' do
-  animal = Animal.new(params)
-  Animal.update
-  redirect to "/animals/#{params['id']}"
+  Animal.new(params).update
+  redirect to '/animals'
 end
 
 # delete
 post '/animals/:id/delete' do
   animal = Animal.find(params['id'])
   Animal.delete
+  redirect to '/animals'
+end
+
+# GET ADOPTION Form
+get "/animals/:id/adoption-form" do
+  @animal = Animal.find(params['id'])
+  @owners = Owner.all()
+  erb(:"animals/adopt")
+end
+
+# ADOPTING
+post "/animals/:id/adopt" do
+  animal = Animal.find(params["id"])
+  animal.owner_id = params["owner_id"].to_i
+  animal.update()
   redirect to '/animals'
 end

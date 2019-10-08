@@ -4,8 +4,8 @@ require_relative('owner')
 
 class Animal
 
-  attr_reader :id, :name, :age, :species, :adoptable, :admission_date, :owner_id
-
+  attr_reader :id
+  attr_accessor :name, :age, :species, :adoptable, :admission_date, :owner_id
 
   def initialize( options )
     @id = options['id'].to_i() if options['id']
@@ -14,7 +14,7 @@ class Animal
     @species = options['species']
     @adoptable = options['adoptable']
     @admission_date = options['admission_date']
-    @owner_id = options['owner_id'].to_i() if options['id']
+    @owner_id = options['owner_id'].to_i() if options['owner_id']
   end
 
   def save()
@@ -46,9 +46,9 @@ class Animal
       ) =
       (
         $1, $2, $3, $4, $5, $6
-      ) WHERE id = $6"
-        values = [@name, @age, @species, @adoptable, @admission_date, @owner_id]
-        @id = SqlRunner.run(sql, values)
+      ) WHERE id = $7"
+        values = [@name, @age, @species, @adoptable, @admission_date, @owner_id, @id]
+        SqlRunner.run(sql, values)
   end
 
   def self.delete_all()
