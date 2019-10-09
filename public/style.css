@@ -1,8 +1,3 @@
-/* .main-table {
-  border: 1px solid black;
-} */
-
-
 
 p {
   color: blue;
@@ -13,8 +8,29 @@ body {
   background: #D8EDFF;
 }
 
-h1 {color: purple;}
+h1 {
+  color: purple;
+  text-align: center;
+}
 
 h2 {color: purple;}
 
-title.main
+/* main-table {
+  border-collapse: collapse;
+} */
+
+/* main-table, th, td {
+  border: 1px solid black; padding: 15px; text-align: left;
+} */
+
+img {
+  width: 920;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav{
+  justify-content: center;
+  text-align: center
+}

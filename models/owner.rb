@@ -40,10 +40,21 @@ class Owner
     SqlRunner.run( sql, values )
   end
 
+  def delete()
+    sql = "DELETE FROM owner WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM owner"
+    SqlRunner.run(sql)
+  end
+
   def self.all()
     sql = "SELECT * FROM owner"
-    owners = SqlRunner.run(sql)
-    return owners.map { | owner | Owner.new(owner) }
+    owner = SqlRunner.run(sql)
+    return owner.map { | owner | Owner.new(owner) }
   end
 
   def self.find(id)
