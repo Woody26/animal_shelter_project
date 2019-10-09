@@ -10,11 +10,13 @@
   <% for owner in @owners %>
   <tr>
     <td><%= owner.first_name %>
-    <td>|</td>
+    <td></td>
     <td><%= owner.last_name %>
-    <td>|</td>
+    <td></td>
     <td><a href="/owners/<%= owner.id %>/edit">Edit</a></td>
-    <td>|</td>
+    <td></td>
+    <td><a href="/owners/<%= owner.id %>/delete">Remove</a></td>
+    <td></td>
   </tr>
   <% end %>
 </table>

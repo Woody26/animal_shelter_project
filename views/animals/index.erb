@@ -13,7 +13,7 @@
     <th></th>
     <th>Admissions Date</th>
     <th></th>
-    <th>Owner ID</th>
+    <th>Owner</th>
     <th></th>
     <th></th>
   </tr>
@@ -35,7 +35,10 @@
     <td></td>
     <td><a href="/animals/<%= animal.id %>/adoption-form">Assign</a></td>
     <td></td>
-    <td><a href="/animals/<%= animal.id %>/delete">Remove</a></td>
+    <form action="/animals/<%= animal.id %>/delete" method="post">
+      <td><input type="submit" value="Delete"></td>
+    </form>
+
     <td></td>
     <!-- IF STATEMENT required here to say IF
     animal.adoptable = True,then show link, elsif

@@ -11,6 +11,7 @@ get '/animals' do
   erb(:"animals/index")
 end
 
+#add new animal
 get '/animals/new' do
   @animals = Animal.all
   erb(:"animals/new")
@@ -44,7 +45,7 @@ end
 # delete
 post '/animals/:id/delete' do
   animal = Animal.find(params['id'])
-  Animal.delete
+  animal.delete
   redirect to '/animals'
 end
 
