@@ -38,13 +38,13 @@ end
 # Update
 post '/owners/:id' do
   owner = Owner.new(params)
-  Owner.update
-  redirect to "/owners/#{params['id']}"
+  owner.update
+  redirect to "/owners"
 end
 
 # Delete
 post '/owners/:id/delete' do
   owner = Owner.find(params['id'])
-  Owner.delete
+  owner.delete
   redirect to '/owners'
 end

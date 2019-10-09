@@ -18,7 +18,7 @@ Owner.delete_all()
     "name" =>  "Sally",
     "age" => 2,
     "species" => "Cat",
-    "adoptable" => "False",
+    "adoptable" => "True",
     "admission_date" => "01/10/2019",
     "owner_id" => nil
     })
