@@ -1,3 +1,18 @@
 /* .main-table {
-  border: 1px solid;
+  border: 1px solid black;
 } */
+
+
+
+p {
+  color: blue;
+  text-align: center;
+}
+
+body {
+  background: #D8EDFF;
+}
+
+h1 {color: purple;}
+
+h2 {color: purple;}
