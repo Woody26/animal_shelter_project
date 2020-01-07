@@ -1,89 +1,22 @@
 # Animal Shelter Project
 
-One Paragraph of project description goes here
+This is a web app to handle the adoption of animals, adding new animals admitted to the shelter and editing animal/customer adoption details. 
 
-## Getting Started
+It uses PSQL, Ruby, the Ruby package for PSQL - 'pg', the Ruby debugging package 'pry'. Sinatra is the web framework that was used through the Ruby packages 'sinatra' and 'sinatra/contrib/all'. 
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+# Running the Animal Shelter Project
 
-You need to install the following software to run the project (and how to install them)
+To run the project, open the Terminal and carry out the following steps:
+1.) Navigate to the 'animal_shelter' directory
+2.) Type 'psql -d animal_shelter -f db/animal_shelter.sql' to run the SQL file
+3.) Type 'ruby db/seeds.rb' to run the seeds file
+Note: Type '!!!' to exit 'pry'.
+4.) Type 'ruby app.rb' to run the main app.
 
-```
-Atom
-PG
-Sinatra
-```
+Once sucessfully running, you will be given a port that is being used. 
 
-### Installing
+Note: The port number in the below example is '4567' - please change to the port you are provided in the previous step.
+Open a browser or new tab and type 'http://localhost:4567/animal_shelter'
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+The home page of the app will display.
