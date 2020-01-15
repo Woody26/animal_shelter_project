@@ -19,4 +19,4 @@ Once sucessfully running, you will be given a port that is being used.
 Note: The port number in the below example is '4567' - please change to the port you are provided in the previous step.
 Open a browser or new tab and type 'http://localhost:4567/animal_shelter'
 
-The home page of the app will display.
+The home page of the app will display. 
